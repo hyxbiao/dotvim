@@ -1,23 +1,26 @@
 execute pathogen#infect()
 
+"set t_Co=256
 syntax on
 filetype plugin indent on
 color dracula
+"set termguicolors
+
+autocmd BufEnter * :highlight Normal ctermbg=NONE ctermfg=NONE
 
 set ts=4 sw=4 sts=4
 
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
-"set t_Co=256
 
 set nocp
 
 "启动时最大化
 autocmd GUIEnter * simalt ~x
 
-" set nu
+set nu
 set ru
 set incsearch
-set hls
+"set hls
 " backspace
 set backspace=indent,eol,start
 " C/C++
@@ -31,14 +34,6 @@ set foldmethod=indent
 "设置文件编码检测类型及支持格式
 set fencs=utf-8,ucs-bom,chinese,cp936,gb18030,gbk,gb2312,big5,latin1
 
-"colorscheme solarized
-"if !has("gui_running")
-"    let g:solarized_termtrans=1
-"    let g:solarized_termcolors=256
-"endif
-"set background=dark
-
-" 
 augroup filetype
     au! BufRead,BufNewFile *.proto setfiletype proto
 augroup end
